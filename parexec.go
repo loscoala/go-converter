@@ -19,17 +19,14 @@ func ExecPar(wg *sync.WaitGroup, work []string, f ParExecutor) {
 	numCPUs := runtime.NumCPU()
 	wg.Add(numCPUs)
 
-	// Gesamtproblem
 	numResults := len(work)
 
 	jobs := make(chan string, numResults)
 
-	// Starte so viele Worker wie CPUs da sind
 	for i := 0; i < numCPUs; i++ {
 		go worker(f, jobs, wg)
 	}
 
-	// befuelle Daten
 	for i := 0; i < numResults; i++ {
 		jobs <- work[i]
 	}
