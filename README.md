@@ -12,7 +12,7 @@ Simply call go build
     go build
     mv converter ~/bin
 
-Add you ~/bin directory to your $PATH variable.
+Add your ~/bin directory to your $PATH variable.
 
 ## Using it
 
@@ -26,3 +26,6 @@ Then call the converter
 
 It uses all your available CPUs on the system and calls for every logical CPU ffmpeg.
 
+## Dependencies
+
+This program calls *ffmpeg*. So you have to install it.
